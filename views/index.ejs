@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MVC project music app</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <h1>Available Songs</h1>
+    <div>
+        <% songs.forEach(function(song) { %>
+            <p><%= song.title %> - <%= song.duration %></p>
+        <% }); %>
+    </div>
+</body>
+</html>
