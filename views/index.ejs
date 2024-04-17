@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MVC project music app</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>MiniPlayerApp</title>
+    <link rel='stylesheet' href='/css/index.css' />
 </head>
 <body>
-    <h1>Available Songs</h1>
-    <div>
-        <% songs.forEach(function(song) { %>
-            <p><%= song.title %> - <%= song.duration %></p>
-        <% }); %>
-    </div>
+    <h1 style="text-align: center;">Welcome to the Mini player app</h1>
+    <nav>
+        <ul style="display: flex; flex:1; flex-direction: row;">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/songs">Songs</a></li>
+            <li><a href="/player">Player</a></li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/categories">Categories</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
