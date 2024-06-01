@@ -8,6 +8,7 @@
     <%- include('./common/navbar.ejs') %>
     <h1 style="text-align: center;">Songs</h1>
     <section style="margin-left: 16px;">
+        <% if(items) { %>
         <ol style="margin:0px; padding: 0px; margin-left: 16px;">
             <% items.map(e => { %>
                 <li style="margin-bottom: 8px;">
@@ -17,6 +18,7 @@
                 </li>
             <% }) %>
         </ol>
+        <% } %>
         <h3>Prześlij nową piosenkę:</h3>
         <form action="/upload" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; width: 25%; gap: 16px">
             <input type="file" name="song" required>
@@ -26,6 +28,8 @@
                 <option value="jazz">Jazz</option>
                 <option value="classical">Classical</option>
             </select>
+            <input type="text" name="title" id="songTitle" placeholder="Song title" required>
+            <input type="text" name="author" id="songAuthor" placeholder="Song author" required>
             <button type="submit">Wyślij</button>
         </form>
     </section>

@@ -1,39 +1,23 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const { Sequelize } = require("sequelize");
-
+const fs = require("fs");
 const app = express();
+
+const db = require("./config/database");
+const SongModel = require("./models/song");
 
 app.set("view engine", "ejs");
 app.set("views", "views");
 
+const uploadDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/data/files", express.static(path.join(__dirname, "data/files")));
-
-// Konfiguracja Sequelize z zewnetrzna baza danych
-const sequelize = new Sequelize(
-  "freedb_music_player_db",
-  "freedb_dbuser",
-  "swdtY%TSqqar4?B",
-  {
-    host: "sql.freedb.tech",
-    dialect: "mysql",
-    port: 3306,
-    logging: false,
-  }
-);
-
-// Synchronizacja modelu z baza danych
-sequelize
-  .sync()
-  .then(() => {
-    console.log("Database synchronized");
-  })
-  .catch((error) => {
-    console.error("Unable to synchronize the database:", error);
-  });
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const mainRoutes = require("./routes/main");
 
@@ -42,7 +26,20 @@ app.get("/", (req, res) => {
 });
 app.use(mainRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const initApp = async () => {
+  try {
+    await db.authenticate();
+    console.log("Database authenticated and synchronized successfully.");
 
-module.exports = { sequelize };
+    SongModel.Song.sync({ alter: true });
+
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () =>
+      console.log(`Server running at http://localhost:${PORT}/`)
+    );
+  } catch (error) {
+    console.error("Unable to synchronize the database:", error);
+  }
+};
+
+initApp();
