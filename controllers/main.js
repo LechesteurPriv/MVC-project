@@ -1,5 +1,6 @@
 const { Op } = require("sequelize");
 const { Song } = require("../models/song");
+const { Sequelize } = require("sequelize");
 
 exports.getHome = (req, res, next) => {
   res.render("home", {});
@@ -71,12 +72,16 @@ exports.getSearch = async (req, res) => {
 
 exports.getCategories = async (req, res) => {
   try {
-    const categories = await Song.findAll({
+    await Song.findAll({
       attributes: [
-        [sequelize.fn("DISTINCT", sequelize.col("category")), "category"],
+        [Sequelize.fn("DISTINCT", Sequelize.col("category")), "category"],
       ],
-    });
-    res.render("categories", { categories });
+    })
+      .then((result) => {
+        const categories = result.map((e) => e.get({ plain: true }));
+        res.render("categories", { categories });
+      })
+      .catch((err) => console.error(err));
   } catch (error) {
     res.status(500).send(error.message);
   }
