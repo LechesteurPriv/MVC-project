@@ -36,7 +36,6 @@ exports.getPlayerWithSong = async (req, res, next) => {
   } catch (error) {
     res.status(500).send(error.message);
   }
-  // const item = songs.find((e) => +e.id === +itemId.substring(1));
 };
 
 exports.getSearch = async (req, res) => {
@@ -45,15 +44,26 @@ exports.getSearch = async (req, res) => {
     const query = {};
 
     if (search) {
-      query.title = { [Op.like]: `%${search}%` };
+      query[Op.or] = [
+        { title: { [Op.like]: `%${search}%` } },
+        { author: { [Op.like]: `%${search}%` } },
+      ];
     }
 
     if (category) {
-      query.category = category;
+      query.category = { [Op.like]: `%${category}%` };
     }
 
-    const songs = await Song.findAll({ where: query });
-    res.render("search", { songs, search, category });
+    if (!search && !category) {
+      res.render("search", { items: null, search, category });
+    } else {
+      await Song.findAll({ where: query })
+        .then((songs) => {
+          const items = songs.map((song) => song.get({ plain: true }));
+          res.render("search", { items, search, category });
+        })
+        .catch((err) => console.error(err));
+    }
   } catch (error) {
     res.status(500).send(error.message);
   }

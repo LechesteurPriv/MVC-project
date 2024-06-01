@@ -15,14 +15,11 @@
             <option value="pop" <%= category === 'pop' ? 'selected' : '' %>>Pop</option>
             <option value="jazz" <%= category === 'jazz' ? 'selected' : '' %>>Jazz</option>
             <option value="classical" <%= category === 'classical' ? 'selected' : '' %>>Classical</option>
-            <!-- Add more categories as needed -->
         </select>
         <button type="submit">Search</button>
     </form>
-    <ul style="text-align: center;">
-        <% songs.forEach(song => { %>
-            <li><%= song.title %> - <%= song.category %></li>
-        <% }); %>
-    </ul>
+    <section style="margin-left: 16px;">
+    <%- include('./common/songsList.ejs', {items, emptyInfo: items === null && "Wpisz frazę wyszukiwania"}) %>
+    </section>
 </body>
 </html>

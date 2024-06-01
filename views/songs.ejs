@@ -8,19 +8,7 @@
     <%- include('./common/navbar.ejs') %>
     <h1 style="text-align: center;">Songs</h1>
     <section style="margin-left: 16px;">
-        <% if(items.length) { %>
-        <ol style="margin:0px; padding: 0px; margin-left: 16px;">
-            <% items.map(e => { %>
-                <li style="margin-bottom: 8px;">
-                    <a href=<%= `/player/:${e.id}` %>>
-                        <%= `${e.author} - ${e.title}` %>
-                    </a>
-                </li>
-            <% }) %>
-        </ol>
-        <% } else { %>
-            <H2>Brak piosenek w bazie</H2>
-        <% } %>
+        <%- include('./common/songsList.ejs', {items}) %>
         <h3>Prześlij nową piosenkę:</h3>
         <form action="/upload" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; width: 25%; gap: 16px">
             <input type="file" name="song" required>

@@ -1,0 +1,13 @@
+<% if(items?.length) { %>
+    <ol style="margin:0px; padding: 0px; margin-left: 16px;">
+        <% items.map(e => { %>
+            <li style="margin-bottom: 8px;">
+                <a href=<%= `/player/:${e.id}` %>>
+                    <%= `${e.author} - ${e.title}` %>
+                </a>
+            </li>
+        <% }) %>
+    </ol>
+<% } else { %>
+    <H2><%= emptyInfo ? emptyInfo : 'Brak piosenek w bazie' %></H2>
+<% } %>
