@@ -7,21 +7,27 @@
 <body>
     <%- include('./common/navbar.ejs') %>
     <h1 style="text-align: center;">Songs</h1>
-    <ul style="text-align: center;">
-        <% songs.forEach(song => { %>
-            <li><%= song.title %> - <%= song.category %></li>
-        <% }); %>
-    </ul>
-    <form action="/upload" method="post" enctype="multipart/form-data" style="text-align: center;">
-        <input type="file" name="song" required>
-        <select name="category">
-            <option value="rock">Rock</option>
-            <option value="pop">Pop</option>
-            <option value="jazz">Jazz</option>
-            <option value="classical">Classical</option>
-            <!-- Add more categories as needed -->
-        </select>
-        <button type="submit">Upload</button>
-    </form>
+    <section style="margin-left: 16px;">
+        <ol style="margin:0px; padding: 0px; margin-left: 16px;">
+            <% items.map(e => { %>
+                <li style="margin-bottom: 8px;">
+                    <a href=<%= `/player/:${e.id}` %>>
+                        <%= `${e.author} - ${e.title}` %>
+                    </a>
+                </li>
+            <% }) %>
+        </ol>
+        <h3>Prześlij nową piosenkę:</h3>
+        <form action="/upload" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; width: 25%; gap: 16px">
+            <input type="file" name="song" required>
+            <select name="category">
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="jazz">Jazz</option>
+                <option value="classical">Classical</option>
+            </select>
+            <button type="submit">Wyślij</button>
+        </form>
+    </section>
 </body>
 </html>
