@@ -110,3 +110,16 @@ exports.uploadSong = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+
+exports.deleteSong = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Song.destroy({ where: { id } })
+            .then(() => {
+                res.redirect("/songs");
+            })
+            .catch((err) => console.error(err));
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};

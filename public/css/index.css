@@ -14,6 +14,7 @@ ul li{
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
     border: 1px solid black;
     padding: 10px 0px;
 }
@@ -21,4 +22,22 @@ ul li{
 ul li a{
     text-decoration: none;
     color: black;
+}
+
+.delete-form {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.delete-button {
+    display: none;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+ul li:hover .delete-button {
+    display: inline-block;
 }

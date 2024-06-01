@@ -1,13 +1,16 @@
-<% if(items?.length) { %>
-    <ol style="margin:0px; padding: 0px; margin-left: 16px;">
+﻿<% if(items?.length) { %>
+    <ul>
         <% items.map(e => { %>
-            <li style="margin-bottom: 8px;">
+            <li class="song-item">
                 <a href=<%= `/player/:${e.id}` %>>
                     <%= `${e.author} - ${e.title}` %>
                 </a>
+                <form action="/delete/<%= e.id %>" method="post" class="delete-form">
+                    <button type="submit" class="delete-button">Usuń</button>
+                </form>
             </li>
         <% }) %>
-    </ol>
+    </ul>
 <% } else { %>
     <H2><%= emptyInfo ? emptyInfo : 'Brak piosenek w bazie' %></H2>
 <% } %>
