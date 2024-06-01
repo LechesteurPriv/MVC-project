@@ -7,5 +7,22 @@
 <body>
     <%- include('./common/navbar.ejs') %>
     <h1 style="text-align: center;">Search</h1>
+    <form action="/search" method="get" style="text-align: center;">
+        <input type="text" name="search" placeholder="Search by name" value="<%= search %>">
+        <select name="category">
+            <option value="">All Categories</option>
+            <option value="rock" <%= category === 'rock' ? 'selected' : '' %>>Rock</option>
+            <option value="pop" <%= category === 'pop' ? 'selected' : '' %>>Pop</option>
+            <option value="jazz" <%= category === 'jazz' ? 'selected' : '' %>>Jazz</option>
+            <option value="classical" <%= category === 'classical' ? 'selected' : '' %>>Classical</option>
+            <!-- Add more categories as needed -->
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    <ul style="text-align: center;">
+        <% songs.forEach(song => { %>
+            <li><%= song.title %> - <%= song.category %></li>
+        <% }); %>
+    </ul>
 </body>
 </html>
