@@ -7,5 +7,10 @@
 <body>
     <%- include('./common/navbar.ejs') %>
     <h1 style="text-align: center;">Categories</h1>
+    <ul style="text-align: center;">
+        <% categories.forEach(category => { %>
+            <li><%= category.category %></li>
+        <% }); %>
+    </ul>
 </body>
 </html>

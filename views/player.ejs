@@ -17,7 +17,7 @@
     </h2>
     <% if (item) { %>
         <audio controls autoplay style="width: 100%;">
-            <source src=<%=`/data/files/${item.fileName.split(' ').join('%20')}`%> type="audio/mpeg">
+            <source src=<%=`/uploads/${item.fileName.split(' ').join('%20')}`%> type="audio/mpeg">
         </audio>
     <% } %>
 </section>

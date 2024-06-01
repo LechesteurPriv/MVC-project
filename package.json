@@ -7,13 +7,18 @@
     "start": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mark Ponomarev <markenastic2014@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "ejs": "^3.1.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.10.0",
+    "sequelize": "^6.37.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
-  }
+  },
+  "repository": "https://github.com/LechesteurPriv/MVC-project.git"
 }
