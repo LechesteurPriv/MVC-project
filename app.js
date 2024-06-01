@@ -8,6 +8,7 @@ app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/data/files", express.static(path.join(__dirname, "data/files")));
 
 const mainRoutes = require("./routes/main");
 

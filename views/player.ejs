@@ -7,5 +7,19 @@
 <body>
     <%- include('./common/navbar.ejs') %>
     <h1 style="text-align: center;">Player</h1>
+    <section style="padding: 0px 16px">
+    <h2 style="text-align: center;">
+        <% if (item) { %>
+            Currently playing: <%= `${item.author} - ${item.title}` %>
+            <% } else { %>
+            No song currently playing
+        <% } %>
+    </h2>
+    <% if (item) { %>
+        <audio controls autoplay style="width: 100%;">
+            <source src=<%=`/data/files/${item.fileName.split(' ').join('%20')}`%> type="audio/mpeg">
+        </audio>
+    <% } %>
+</section>
 </body>
 </html>

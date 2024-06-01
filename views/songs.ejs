@@ -7,5 +7,16 @@
 <body>
     <%- include('./common/navbar.ejs') %>
     <h1 style="text-align: center;">Songs</h1>
+    <section>
+        <ol>
+            <% items.map(e => { %>
+                <li style="margin-bottom: 8px;">
+                    <a href=<%= `/player/:${e.id}` %>>
+                        <%= `${e.author} - ${e.title}` %>
+                    </a>
+                </li>
+            <% }) %>
+        </ol>
+    </section>
 </body>
 </html>
