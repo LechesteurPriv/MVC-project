@@ -1,16 +1,20 @@
-﻿<% if(items?.length) { %>
+﻿<% if (items && items.length > 0) { %>
     <ul>
-        <% items.map(e => { %>
+        <% items.forEach(e => { %>
             <li class="song-item">
-                <a href=<%= `/player/:${e.id}` %>>
+                <a href="<%= `/player/${e.id}` %>">
                     <%= `${e.author} - ${e.title}` %>
                 </a>
                 <form action="/delete/<%= e.id %>" method="post" class="delete-form">
-                    <button type="submit" class="delete-button">Usuń</button>
+                    <button type="submit" class="delete-button">Delete</button>
                 </form>
             </li>
         <% }) %>
     </ul>
 <% } else { %>
-    <H2><%= emptyInfo ? emptyInfo : 'Brak piosenek w bazie' %></H2>
+
+    <h2>Nothing to display here yet</h2>
+
 <% } %>
+
+

@@ -2,8 +2,8 @@ const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(
   "freedb_music_player_db",
-  "freedb_dbuser",
-  "swdtY%TSqqar4?B",
+  "freedb_muser",
+  "72!Ax3NNSRv49aD",
   {
     host: "sql.freedb.tech",
     dialect: "mysql",
