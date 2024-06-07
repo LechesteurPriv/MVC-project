@@ -8,8 +8,8 @@
     <%- include('./common/navbar.ejs') %>
     <h1 style="text-align: center;">Categories</h1>
     <ul style="text-align: center;">
-        <% categories.forEach(category => { %>
-            <li><%= category.category %></li>
+        <% categories.forEach(function(category) { %>
+            <li><a href="/categories/<%= category.category %>"><%= category.category %></a></li>
         <% }); %>
     </ul>
 </body>
