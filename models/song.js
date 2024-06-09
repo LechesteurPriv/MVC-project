@@ -24,6 +24,13 @@ const Song = sequelize.define("Song", {
     type: DataTypes.STRING,
     allowNull: true,
   },
+  file_data: {
+    type: DataTypes.BLOB('long'),
+    allowNull: false,
+  }
+}, {
+  tableName: 'Songs',
+  schema: 'freedb_music_player_db',
 });
 
 module.exports = {

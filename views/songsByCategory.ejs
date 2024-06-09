@@ -9,7 +9,11 @@
 <h1>Songs in <%= category %></h1>
 <ul>
     <% items.forEach(function(song) { %>
-        <li><%= song.title %> by <%= song.author %></li>
+        <li>
+            <a href="/player/<%= song.id %>">
+                <%= song.title %> by <%= song.author %>
+            </a>
+        </li>
     <% }); %>
 </ul>
 <a href="/categories">Back to Categories</a>

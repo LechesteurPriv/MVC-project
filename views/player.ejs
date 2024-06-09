@@ -5,19 +5,20 @@
     <link rel='stylesheet' href='/css/index.css' />
 </head>
 <body>
-    <%- include('./common/navbar.ejs') %>
-    <h1 style="text-align: center;">Player</h1>
-    <section style="padding: 0px 16px">
+<%- include('./common/navbar.ejs') %>
+<h1 style="text-align: center;">Player</h1>
+<section style="padding: 0px 16px">
     <h2 style="text-align: center;">
         <% if (item) { %>
             Currently playing: <%= `${item.author} - ${item.title}` %>
-            <% } else { %>
+        <% } else { %>
             No song currently playing
         <% } %>
     </h2>
     <% if (item) { %>
         <audio controls autoplay style="width: 100%;">
-            <source src=<%=`/uploads/${item.fileName.split(' ').join('%20')}`%> type="audio/mpeg">
+            <source src="data:audio/mpeg;base64,<%= item.file_data.toString('base64') %>" type="audio/mpeg">
+            Your browser does not support the audio element.
         </audio>
     <% } %>
 </section>
