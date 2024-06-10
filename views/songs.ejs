@@ -9,7 +9,7 @@
 <h1 style="text-align: center;">Songs</h1>
 <section style="margin-left: 16px;">
     <%- include('./common/songsList.ejs', {items}) %>
-    <h3>Upload a new song:</h3>
+    <h3><span class="white-text">Upload a new song:</span></h3>
     <form action="/upload" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; width: 25%; gap: 16px">
         <input type="file" name="file" required>
         <select name="category">

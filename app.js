@@ -16,7 +16,6 @@ app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// Use main routes
 app.use(mainRoutes);
 
 const initApp = async () => {

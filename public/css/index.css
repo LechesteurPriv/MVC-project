@@ -47,21 +47,21 @@ ul li a {
     border-radius: 5px;
 }
 
-.back-to-categories a {
+.back a {
     display: block;
-    padding: 3px;
-    max-width: 200px;
+    padding: 10px;
+    max-width: 400px;
     margin: 10px auto;
     text-align: center;
     text-decoration: none;
     color: white;
-    background-color: #e74c3c;
+    background-color: #EB3B3B;
     border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s ease;
 }
 
-.back-to-categories a:hover {
+.back a:hover {
     background-color: #c0392b;
 }
 
@@ -72,7 +72,7 @@ ul li a {
 
 .delete-button {
     display: none;
-    background-color: #e74c3c;
+    background-color: #EB3B3B;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -87,5 +87,24 @@ ul li:hover .delete-button {
 }
 
 .delete-button:hover {
-    background-color: #c0392b;
+    background-color: #C0392B;
+}
+
+.instructions {
+    text-align: center;
+    margin: 20px;
+}
+
+.instructions p {
+    font-size: 18px;
+    color: #111;
+    font-weight: bold;
+}
+
+.white-text {
+    color: white;
+}
+
+.red-text {
+    color: red;
 }
