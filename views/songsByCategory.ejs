@@ -13,6 +13,9 @@
             <a href="/player/<%= song.id %>">
                 <%= song.title %> by <%= song.author %>
             </a>
+            <form action="/delete/<%= song.id %>" method="post" class="delete-form">
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
         </li>
     <% }); %>
     <div class="back">
