@@ -99,7 +99,6 @@ exports.uploadSong = async (req, res) => {
         const fileData = req.file.buffer;
         const fileName = req.file.originalname;
 
-        // Log the input data for debugging
         console.log("Title:", title);
         console.log("Author:", author);
         console.log("Category:", category);
