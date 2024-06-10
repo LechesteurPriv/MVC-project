@@ -1,31 +1,68 @@
 body {
     background-image: url('/images/background.jpg');
     background-size: cover;
-    background-attachment: scroll;
-    font-family: Arial, sans-serif;
+    background-attachment: fixed;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
-ul{
-    padding:0px;
-    margin:10px;
+ul {
+    padding: 0;
+    margin: 20px auto;
+    max-width: 600px;
+    list-style: none;
 }
 
-ul li{
-    list-style-type: none;
+ul li {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
-    padding: 10px 0px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-ul li a{
+ul li:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+ul li a {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
     text-decoration: none;
-    color: black;
+    color: #333;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.back-to-categories a {
+    display: block;
+    padding: 3px;
+    max-width: 200px;
+    margin: 10px auto;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #e74c3c;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.back-to-categories a:hover {
+    background-color: #c0392b;
 }
 
 .delete-form {
@@ -35,13 +72,20 @@ ul li a{
 
 .delete-button {
     display: none;
-    background-color: #f44336;
+    background-color: #e74c3c;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 12px;
     cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+    margin-right: 10px;
 }
 
 ul li:hover .delete-button {
     display: inline-block;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
 }

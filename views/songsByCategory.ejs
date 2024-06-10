@@ -6,7 +6,7 @@
 </head>
 <body>
 <%- include('./common/navbar.ejs') %>
-<h1>Songs in <%= category %></h1>
+<h1 style="text-align: center;">Songs in <%= category %></h1>
 <ul>
     <% items.forEach(function(song) { %>
         <li>
@@ -15,7 +15,9 @@
             </a>
         </li>
     <% }); %>
+    <div class="back-to-categories">
+        <a href="/categories">Back to Categories</a>
+    </div>
 </ul>
-<a href="/categories">Back to Categories</a>
 </body>
 </html>
