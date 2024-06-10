@@ -9,19 +9,25 @@
 <h1 style="text-align: center;">Songs</h1>
 <section style="margin-left: 16px;">
     <%- include('./common/songsList.ejs', {items}) %>
-    <h3><span class="white-text">Upload a new song:</span></h3>
-    <form action="/upload" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; width: 25%; gap: 16px">
-        <input type="file" name="file" required>
-        <select name="category">
-            <option value="rock">Rock</option>
-            <option value="pop">Pop</option>
-            <option value="jazz">Jazz</option>
-            <option value="classical">Classical</option>
-        </select>
-        <input type="text" name="title" id="songTitle" placeholder="Song title" required>
-        <input type="text" name="author" id="songAuthor" placeholder="Song author" required>
-        <button type="submit">Upload</button>
-    </form>
+    <h3 style="text-align: center;"><span class="white-text">Upload a new song:</span></h3>
+    <div class="container">
+        <div class="form-container">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <select name="category">
+                    <option value="rock">Rock</option>
+                    <option value="pop">Pop</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="classical">Classical</option>
+                </select>
+                <input type="text" name="title" id="songTitle" placeholder="Song title" required>
+                <input type="text" name="author" id="songAuthor" placeholder="Song author" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+
+
 </section>
 </body>
 </html>

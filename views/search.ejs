@@ -7,6 +7,8 @@
 <body>
     <%- include('./common/navbar.ejs') %>
     <h1 style="text-align: center;">Search</h1>
+    <div class="container">
+        <div class="form-container">
     <form action="/search" method="get" style="text-align: center;">
         <input type="text" name="search" placeholder="Search by name" value="<%= search %>">
         <select name="category">
@@ -17,7 +19,9 @@
             <option value="classical" <%= category === 'classical' ? 'selected' : '' %>>Classical</option>
         </select>
         <button type="submit">Search</button>
-    </form>
+            </form>
+        </div>
+    </div>
     <section style="margin-left: 16px;">
     <%- include('./common/songsList.ejs', {items, emptyInfo: items === null && "Wpisz frazę wyszukiwania"}) %>
     </section>

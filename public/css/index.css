@@ -30,6 +30,11 @@ ul li {
     transition: all 0.3s ease;
 }
 
+.song-item {
+    text-align: left;
+    flex: none;
+}
+
 ul li:hover {
     background: rgba(255, 255, 255, 1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -40,7 +45,7 @@ ul li a {
     display: block;
     padding: 10px;
     width: 100%;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
     color: #333;
     font-weight: bold;
@@ -90,9 +95,28 @@ ul li:hover .delete-button {
     background-color: #C0392B;
 }
 
-.instructions {
-    text-align: center;
+.instructions, .form-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px;
+    text-align: center;
+    width: 600px;
+    align-self: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .instructions p {
@@ -101,8 +125,8 @@ ul li:hover .delete-button {
     font-weight: bold;
 }
 
-.white-text {
-    color: white;
+.blue-text {
+    color: darkslateblue;
 }
 
 .red-text {
